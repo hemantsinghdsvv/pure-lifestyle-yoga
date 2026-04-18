@@ -32,7 +32,6 @@
         <div class="dropdown-menu">
           <a href="memberships.html?filter=all">All Plans</a>
           <a href="memberships.html?filter=premium-home">Premium at Home</a>
-          <a href="memberships.html?filter=flexible-home">Flexible at Home</a>
           <a href="memberships.html?filter=online-private">Online Private</a>
           <a href="memberships.html?filter=group-online">Group Online</a>
         </div>
@@ -51,7 +50,6 @@
   <div class="mobile-section-label">Memberships</div>
   <a href="memberships.html?filter=all" style="padding-left:1.5rem">All Plans</a>
   <a href="memberships.html?filter=premium-home" style="padding-left:1.5rem">Premium at Home</a>
-  <a href="memberships.html?filter=flexible-home" style="padding-left:1.5rem">Flexible at Home</a>
   <a href="memberships.html?filter=online-private" style="padding-left:1.5rem">Online Private</a>
   <a href="memberships.html?filter=group-online" style="padding-left:1.5rem">Group Online</a>
   <a href="events.html">Events</a><a href="partnerships.html">Partnerships</a>
@@ -249,8 +247,8 @@
         <li><a href="masters.html">Our Yoga Masters</a></li><li><a href="events.html">Events</a></li>
       </ul></div>
       <div class="footer-col"><h5>Memberships</h5><ul>
-        <li><a href="memberships.html?filter=premium-private">Private at Home</a></li>
-        <li><a href="memberships.html?filter=private-online">Private Online</a></li>
+        <li><a href="memberships.html?filter=premium-home">Private at Home</a></li>
+        <li><a href="memberships.html?filter=online-private">Private Online</a></li>
         <li><a href="memberships.html?filter=group-online">Group Online</a></li>
         <li><a href="memberships.html?filter=corporate">Corporate</a></li>
       </ul></div>
@@ -287,6 +285,10 @@
         <div class="form-group"><label>Email</label><input type="email" placeholder="purelifestyleyogaofficial@gmail.com" required /></div>
       </div>
       <div class="form-group">
+        <label>Full Address</label>
+        <textarea name="address" placeholder="House/Flat No., Building Name, Street, Area, City..." rows="2" required></textarea>
+      </div>
+      <div class="form-group">
         <label>What Are You Looking For?</label>
         <select required>
           <option value="">Select interest</option>
@@ -299,6 +301,14 @@
           <option>Not sure — help me choose</option>
         </select>
       </div>
+      <div class="form-group">
+        <label>Preferred Date & Time</label>
+        <input type="text" name="preferred_datetime" placeholder="e.g. Next Tuesday 5:00 PM or Weekends" required />
+      </div>
+      <div class="form-group">
+        <label>Your Wellness Goal (optional)</label>
+        <input type="text" name="goal" placeholder="e.g. Stress relief, weight loss, flexibility..." />
+      </div>
       <button type="submit" class="btn btn-primary" style="width:100%">Find My Master 🌿</button>
     </form>
   </div>
@@ -307,3 +317,8 @@
 <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+
+
+

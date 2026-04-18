@@ -347,49 +347,121 @@ p { font-size: 1rem; line-height: 1.8; color: var(--text-body); }
   display: flex; align-items: center;
   overflow: hidden;
 }
+/* Hero container: push content to the left */
+.hero > .container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
 .hero-bg {
   position: absolute; inset: 0;
   background-image: url('../images/hero-bg.png');
-  background-size: cover; background-position: center;
+  background-size: cover;
+  /* Push subjects entirely to the right edge */
+  background-position: right center;
 }
 .hero-bg::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(135deg,
-    rgba(42, 38, 34, 0.88) 0%,
-    rgba(42, 38, 34, 0.62) 55%,
-    rgba(42, 38, 34, 0.40) 100%
+  /* Darken the left significantly to ensure text pops and gradient fades before subjects */
+  background: linear-gradient(to right,
+    rgba(22, 18, 14, 0.98) 0%,
+    rgba(22, 18, 14, 0.90) 35%,
+    rgba(22, 18, 14, 0.40) 55%,
+    rgba(22, 18, 14, 0.00) 100%
   );
 }
+
+/* Constrain text strictly to the left third/half */
 .hero-content {
   position: relative; z-index: 2;
-  max-width: 680px;
+  max-width: 480px;   /* tighter width to prevent any overlap */
+  text-align: left;   /* explicit left-align on desktop */
+  margin-right: auto; /* pin to left side */
 }
-.hero-content .eyebrow { color: var(--gold-light); margin-bottom: var(--spacing-sm); }
+
+/* Gold accent line before eyebrow */
+.hero-eyebrow-wrap {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: var(--spacing-sm);
+}
+.hero-eyebrow-line {
+  width: 32px; height: 1.5px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  flex-shrink: 0;
+}
+.hero-content .eyebrow {
+  color: var(--gold-light);
+  margin-bottom: 0;
+  letter-spacing: 0.28em;
+}
 .hero-content h1 {
   color: var(--white);
   font-style: italic;
   margin-bottom: var(--spacing-md);
-  text-shadow: 0 2px 32px rgba(0,0,0,0.18);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
 }
 .hero-content h1 em { font-style: normal; color: var(--gold-light); }
-.hero-content p {
-  color: rgba(255,255,255,0.85);
-  font-size: 1.1rem;
-  max-width: 480px;
+.hero-content > p {
+  color: rgba(255,255,255,0.75);
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 460px;
   margin-bottom: var(--spacing-lg);
+  font-weight: 300;
 }
-.hero-cta-group { display: flex; gap: var(--spacing-sm); flex-wrap: wrap; align-items: center; }
+
+/* Decorative divider between headline and body text */
+.hero-divider {
+  display: flex; align-items: center; gap: 0.6rem;
+  margin-bottom: var(--spacing-md);
+}
+.hero-divider-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(to right, rgba(184,151,58,0.6), transparent);
+}
+.hero-divider-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--gold); flex-shrink: 0;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start; /* buttons stay left, never stretch to fill width */
+}
+
+/* Trust strip beneath CTAs */
+.hero-trust {
+  display: flex; align-items: center; gap: 1.25rem;
+  margin-top: var(--spacing-md);
+  flex-wrap: wrap;
+}
+.hero-trust-item {
+  display: flex; align-items: center; gap: 0.4rem;
+  font-size: 0.7rem; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+}
+.hero-trust-item span:first-child { color: var(--gold-light); font-size: 0.85rem; }
+.hero-trust-sep {
+  width: 1px; height: 14px;
+  background: rgba(255,255,255,0.18);
+}
+
 .hero-scroll {
   position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
   z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
 }
 .hero-scroll span {
-  font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6);
+  font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5);
 }
 .scroll-line {
   width: 1px; height: 48px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
   animation: scrollPulse 2s ease-in-out infinite;
 }
 @keyframes scrollPulse {

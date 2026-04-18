@@ -52,7 +52,8 @@
       display: grid;
       grid-template-columns: 260px 1fr;
       gap: 2.5rem;
-      max-width: 1240px;
+      max-width: 1360px;
+      /* Slightly scaled down from 1440px so cards aren't overly huge */
       margin: 0 auto;
       padding: 3rem 2rem 5rem;
       align-items: start;
@@ -163,7 +164,7 @@
     /* Cards grid */
     .mem-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
     }
 
@@ -201,26 +202,27 @@
 
     /* Card header */
     .plan-card-header {
-      padding: 1.4rem 1.4rem 1rem;
+      padding: 1.5rem 1.5rem 1.2rem;
       border-bottom: 1px solid var(--cream-dark);
     }
 
     .plan-cat-label {
-      font-size: 0.6rem;
+      font-size: 0.55rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.6rem;
     }
 
     .plan-name {
       font-family: var(--font-serif);
-      font-size: 1.25rem;
+      font-size: 1.15rem;
+      /* Smoother, sharper font sizing */
       font-weight: 500;
       color: var(--charcoal);
-      margin-bottom: 0.7rem;
-      line-height: 1.25;
+      margin-bottom: 0.85rem;
+      line-height: 1.35;
     }
 
     .plan-popular {
@@ -253,8 +255,9 @@
 
     .plan-amount {
       font-family: var(--font-serif);
-      font-size: 2.4rem;
-      font-weight: 500;
+      font-size: 2rem;
+      /* Reduced to look more elegant rather than loud */
+      font-weight: 400;
       color: var(--charcoal);
       line-height: 1;
     }
@@ -285,8 +288,8 @@
     .plan-meta-row {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      font-size: 0.82rem;
+      gap: 0.5rem;
+      font-size: 0.76rem;
       color: var(--text-body);
     }
 
@@ -320,9 +323,9 @@
       display: flex;
       align-items: flex-start;
       gap: 0.55rem;
-      font-size: 0.82rem;
+      font-size: 0.76rem;
       color: var(--text-body);
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     .pf-check {
@@ -334,7 +337,7 @@
 
     /* CTA */
     .plan-cta {
-      padding: 1.1rem 1.4rem;
+      padding: 1.25rem 1.5rem;
       border-top: 1px solid var(--cream-dark);
       margin-top: auto;
     }
@@ -454,6 +457,12 @@
       }
     }
 
+    @media (max-width: 1024px) {
+      .mem-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 540px) {
       .mem-cards {
         grid-template-columns: 1fr;
@@ -517,7 +526,6 @@
           <div class="dropdown-menu">
             <a href="memberships.html?filter=all">All Plans</a>
             <a href="memberships.html?filter=premium-home">Premium at Home</a>
-            <a href="memberships.html?filter=flexible-home">Flexible at Home</a>
             <a href="memberships.html?filter=online-private">Online Private</a>
             <a href="memberships.html?filter=group-online">Group Online</a>
           </div>
@@ -537,7 +545,6 @@
     <div class="mobile-section-label">Memberships</div>
     <a href="memberships.html?filter=all" style="padding-left:1.5rem">All Plans</a>
     <a href="memberships.html?filter=premium-home" style="padding-left:1.5rem">Premium at Home</a>
-    <a href="memberships.html?filter=flexible-home" style="padding-left:1.5rem">Flexible at Home</a>
     <a href="memberships.html?filter=online-private" style="padding-left:1.5rem">Online Private</a>
     <a href="memberships.html?filter=group-online" style="padding-left:1.5rem">Group Online</a>
     <a href="events.html">Events</a><a href="partnerships.html">Partnerships</a>
@@ -550,7 +557,7 @@
     <!-- HERO -->
     <section class="mem-hero">
       <div class="container">
-        <p class="eyebrow fade-up">Flexible & Premium</p>
+
         <h1 class="fade-up delay-1">Membership Plans</h1>
         <p class="fade-up delay-2"
           style="font-family: var(--font-serif); font-size: 1.4rem; font-style: italic; color: var(--gold-light); margin-bottom: 1rem;">
@@ -570,14 +577,10 @@
 
         <div class="mem-filter-item active" data-filter="all">
           <span class="filter-icon">✦</span> All Plans
-          <span class="mem-filter-count">16</span>
+          <span class="mem-filter-count">12</span>
         </div>
         <div class="mem-filter-item" data-filter="premium-home">
           <span class="filter-icon">🏠</span> Premium at Home
-          <span class="mem-filter-count">4</span>
-        </div>
-        <div class="mem-filter-item" data-filter="flexible-home">
-          <span class="filter-icon">🌿</span> Flexible at Home
           <span class="mem-filter-count">4</span>
         </div>
         <div class="mem-filter-item" data-filter="online-private">
@@ -594,7 +597,7 @@
       <div>
         <div class="mem-results-header">
           <h2 id="categoryTitle">All Membership Plans</h2>
-          <span class="mem-results-count" id="planCount">16 plans available</span>
+          <span class="mem-results-count" id="planCount">12 plans available</span>
         </div>
 
         <div class="mem-cards" id="plansGrid">
@@ -606,13 +609,129 @@
             <div class="plan-card fade-up">
               <div class="plan-accent"></div>
               <div class="plan-card-header">
-                <div class="plan-cat-label">💻 Online Premium Private</div>
-                <div class="plan-name">Discovery Session</div>
+                <div class="plan-cat-label">🏠 Premium Private at Home</div>
+                <div class="plan-name">Private Discovery Session</div>
                 <div class="plan-price-row">
                   <span class="plan-currency">₹</span>
                   <span class="plan-amount">1,000</span>
                   <span class="plan-period">/ session</span>
-                  <span class="plan-usd">$10</span>
+                </div>
+              </div>
+              <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>Single session</div>
+                <div class="plan-meta-row"><span class="plan-meta-icon">🏠</span>At your home</div>
+                <div class="plan-meta-row"><span class="plan-meta-icon">🎯</span>Comprehensive assessment</div>
+              </div>
+              <div class="plan-features">
+                <div class="plan-features-label">What's Included</div>
+                <div class="pf-row"><span class="pf-check">✓</span>Body & lifestyle assessment</div>
+                <div class="pf-row"><span class="pf-check">✓</span>Movement patterns analysis</div>
+                <div class="pf-row"><span class="pf-check">✓</span>Personalised programme overview</div>
+              </div>
+              <div class="plan-cta"><button class="plan-btn" onclick="openBookModal()">Book Now</button></div>
+            </div>
+
+            <!-- 2. Signature Experience -->
+            <div class="plan-card fade-up delay-1">
+              <div class="plan-accent"></div>
+              <div class="plan-card-header">
+                <div class="plan-cat-label">🏠 Premium Private at Home</div>
+                <div class="plan-name">Signature Experience</div>
+                <div class="plan-price-row">
+                  <span class="plan-currency">₹</span>
+                  <span class="plan-amount">2,000</span>
+                  <span class="plan-period">/ session</span>
+                </div>
+              </div>
+              <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>12 sessions (4 weeks)</div>
+                <div class="plan-meta-row"><span class="plan-meta-icon">🏠</span>At your home</div>
+                <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹24,000</div>
+              </div>
+              <div class="plan-features">
+                <div class="plan-features-label">Focus Areas</div>
+                <div class="pf-row"><span class="pf-check">✓</span>Foundation building</div>
+                <div class="pf-row"><span class="pf-check">✓</span>Posture & form correction</div>
+                <div class="pf-row"><span class="pf-check">✓</span>Perfect alignment</div>
+                <div class="pf-row"><span class="pf-check" style="color:var(--gold);">+</span>Add partner: ₹500 / person
+                </div>
+              </div>
+              <div class="plan-cta"><button class="plan-btn" onclick="openBookModal()">Book Now</button></div>
+            </div>
+
+            <!-- 3. Transform -->
+            <div class="plan-card fade-up delay-2">
+              <div class="plan-accent gold"></div>
+              <div class="plan-card-header">
+                <div class="plan-cat-label">🏠 Premium Private at Home</div>
+                <div class="plan-name">Transform <span class="plan-popular">Best Value</span></div>
+                <div class="plan-price-row">
+                  <span class="plan-currency">₹</span>
+                  <span class="plan-amount">1,700</span>
+                  <span class="plan-period">/ session</span>
+                </div>
+              </div>
+              <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>36 sessions (12 weeks)</div>
+                <div class="plan-meta-row"><span class="plan-meta-icon">🏠</span>At your home</div>
+                <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹61,200</div>
+              </div>
+              <div class="plan-features">
+                <div class="plan-features-label">Focus Areas</div>
+                <div class="pf-row"><span class="pf-check">✓</span>Mobility & flexibility</div>
+                <div class="pf-row"><span class="pf-check">✓</span>Core strength development</div>
+                <div class="pf-row"><span class="pf-check">✓</span>Breath synchronization</div>
+                <div class="pf-row"><span class="pf-check" style="color:var(--gold);">+</span>Add partner: ₹500 / person
+                </div>
+              </div>
+              <div class="plan-cta"><button class="plan-btn gold" onclick="openBookModal()">Book Now</button></div>
+            </div>
+
+            <!-- 4. Elite Transformation -->
+            <div class="plan-card fade-up delay-3">
+              <div class="plan-accent"></div>
+              <div class="plan-card-header">
+                <div class="plan-cat-label">🏠 Premium Private at Home</div>
+                <div class="plan-name">Elite Transformation</div>
+                <div class="plan-price-row">
+                  <span class="plan-currency">₹</span>
+                  <span class="plan-amount">1,500</span>
+                  <span class="plan-period">/ session</span>
+                </div>
+              </div>
+              <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>72 sessions (24 weeks)</div>
+                <div class="plan-meta-row"><span class="plan-meta-icon">⭐</span>Limited Access Available</div>
+                <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹108,000</div>
+              </div>
+              <div class="plan-features">
+                <div class="plan-features-label">Focus Areas</div>
+                <div class="pf-row"><span class="pf-check">✓</span>Deep, holistic transformation</div>
+                <div class="pf-row"><span class="pf-check">✓</span>Visible bodily results</div>
+                <div class="pf-row"><span class="pf-check">✓</span>Long-term lifestyle integration</div>
+                <div class="pf-row"><span class="pf-check" style="color:var(--gold);">+</span>Add partner: ₹500 / person
+                </div>
+              </div>
+              <div class="plan-cta"><button class="plan-btn" onclick="openBookModal()">Book Now</button></div>
+            </div>
+
+          </div><!-- end premium-home -->
+
+
+          <!-- ══ ONLINE PREMIUM PRIVATE ══ -->
+          <div class="plan-group active" data-category="online-private">
+
+            <!-- 1. Discovery -->
+            <div class="plan-card fade-up">
+              <div class="plan-accent"></div>
+              <div class="plan-card-header">
+                <div class="plan-cat-label">💻 Online Premium Private</div>
+                <div class="plan-name">Discovery Session</div>
+                <div class="plan-price-row">
+                  <span class="plan-currency">₹</span>
+                  <span class="plan-amount">500</span>
+                  <span class="plan-period">/ session</span>
+                  <span class="plan-usd">$5</span>
                 </div>
               </div>
               <div class="plan-meta">
@@ -713,234 +832,6 @@
           </div><!-- end online-private -->
 
 
-          <!-- ══ FLEXIBLE PRIVATE AT HOME ══ -->
-          <div class="plan-group active" data-category="flexible-home">
-
-            <!-- 1. Private Discovery -->
-            <div class="plan-card fade-up">
-              <div class="plan-accent"></div>
-              <div class="plan-card-header">
-                <div class="plan-cat-label">🌿 Flexible Private at Home</div>
-                <div class="plan-name">Discovery Session</div>
-                <div class="plan-price-row">
-                  <span class="plan-currency">₹</span>
-                  <span class="plan-amount">1,000</span>
-                  <span class="plan-period">/ session</span>
-                </div>
-              </div>
-              <div class="plan-meta">
-                <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>Single session</div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">📍</span>At your home, Gurugram & Delhi NCR
-                </div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">🌿</span>Flexible scheduling</div>
-              </div>
-              <div class="plan-features">
-                <div class="plan-features-label">Includes</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Full body & lifestyle assessment</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Flexible scheduling options</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Custom plan recommendation</div>
-              </div>
-              <div class="plan-cta"><button class="plan-btn" onclick="openBookModal()">Book Now</button></div>
-            </div>
-
-            <!-- 2. Signature Experience -->
-            <div class="plan-card fade-up delay-1">
-              <div class="plan-accent"></div>
-              <div class="plan-card-header">
-                <div class="plan-cat-label">🏠 Premium Private at Home</div>
-                <div class="plan-name">Signature Experience</div>
-                <div class="plan-price-row">
-                  <span class="plan-currency">₹</span>
-                  <span class="plan-amount">2,000</span>
-                  <span class="plan-period">/ session</span>
-                </div>
-              </div>
-              <div class="plan-meta">
-                <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>12 sessions over 4 weeks</div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">📍</span>At your home, Gurugram & Delhi NCR
-                </div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹24,000</div>
-              </div>
-              <div class="plan-features">
-                <div class="plan-features-label">Focus Areas</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Foundation building</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Posture correction</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Alignment mastery</div>
-              </div>
-              <div class="plan-cta"><button class="plan-btn" onclick="openBookModal()">Book Now</button></div>
-            </div>
-
-            <!-- 3. Transform 12 Weeks -->
-            <div class="plan-card fade-up delay-2">
-              <div class="plan-accent gold"></div>
-              <div class="plan-card-header">
-                <div class="plan-cat-label">🏠 Premium Private at Home</div>
-                <div class="plan-name">Transform <span class="plan-popular">Best Value</span></div>
-                <div class="plan-price-row">
-                  <span class="plan-currency">₹</span>
-                  <span class="plan-amount">1,700</span>
-                  <span class="plan-period">/ session</span>
-                </div>
-              </div>
-              <div class="plan-meta">
-                <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>36 sessions over 12 weeks</div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">📍</span>At your home, Gurugram & Delhi NCR
-                </div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹61,200</div>
-              </div>
-              <div class="plan-features">
-                <div class="plan-features-label">Focus Areas</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Mobility & flexibility</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Core strength building</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Breath synchronisation</div>
-              </div>
-              <div class="plan-cta"><button class="plan-btn gold" onclick="openBookModal()">Book Now</button></div>
-            </div>
-
-            <!-- 4. Elite 24 Weeks -->
-            <div class="plan-card fade-up delay-3">
-              <div class="plan-accent"></div>
-              <div class="plan-card-header">
-                <div class="plan-cat-label">🏠 Premium Private at Home</div>
-                <div class="plan-name">Elite Transformation</div>
-                <div class="plan-price-row">
-                  <span class="plan-currency">₹</span>
-                  <span class="plan-amount">1,500</span>
-                  <span class="plan-period">/ session</span>
-                </div>
-              </div>
-              <div class="plan-meta">
-                <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>72 sessions over 24 weeks</div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">📍</span>At your home, Gurugram & Delhi NCR
-                </div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹1,08,000</div>
-              </div>
-              <div class="plan-features">
-                <div class="plan-features-label">Focus Areas</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Deep transformation</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Visible, lasting results</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Lifestyle integration</div>
-              </div>
-              <div class="plan-cta"><button class="plan-btn" onclick="openBookModal()">Book Now</button></div>
-            </div>
-
-          </div><!-- end flexible-home -->
-
-
-          <!-- ══ ONLINE PREMIUM PRIVATE ══ -->
-          <div class="plan-group active" data-category="online-private">
-
-            <!-- 1. Discovery -->
-            <div class="plan-card fade-up">
-              <div class="plan-accent"></div>
-              <div class="plan-card-header">
-                <div class="plan-cat-label">💻 Online Premium Private</div>
-                <div class="plan-name">Discovery Session</div>
-                <div class="plan-price-row">
-                  <span class="plan-currency">₹</span>
-                  <span class="plan-amount">1,000</span>
-                  <span class="plan-period">/ session</span>
-                  <span class="plan-usd">$10</span>
-                </div>
-              </div>
-              <div class="plan-meta">
-                <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>Single session</div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">💻</span>Online • Live 1:1</div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">🎯</span>Assessment & goal setting</div>
-              </div>
-              <div class="plan-features">
-                <div class="plan-features-label">What's Included</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Body & lifestyle assessment</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Personalised programme overview</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Meet your dedicated master</div>
-              </div>
-              <div class="plan-cta"><button class="plan-btn" onclick="openBookModal()">Book Now</button></div>
-            </div>
-
-            <!-- 2. 4 Weeks Intensive -->
-            <div class="plan-card fade-up delay-1">
-              <div class="plan-accent"></div>
-              <div class="plan-card-header">
-                <div class="plan-cat-label">💻 Online Premium Private</div>
-                <div class="plan-name">4 Weeks Intensive</div>
-                <div class="plan-price-row">
-                  <span class="plan-currency">₹</span>
-                  <span class="plan-amount">1,500</span>
-                  <span class="plan-period">/ session</span>
-                  <span class="plan-usd">$16</span>
-                </div>
-              </div>
-              <div class="plan-meta">
-                <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>10 sessions over 4 weeks</div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">💻</span>Online • Live 1:1</div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹15,000</div>
-              </div>
-              <div class="plan-features">
-                <div class="plan-features-label">Focus Areas</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Foundation & correct form</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Breath & posture alignment</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Live corrections every session</div>
-              </div>
-              <div class="plan-cta"><button class="plan-btn" onclick="openBookModal()">Book Now</button></div>
-            </div>
-
-            <!-- 3. 12 Weeks -->
-            <div class="plan-card fade-up delay-2">
-              <div class="plan-accent gold"></div>
-              <div class="plan-card-header">
-                <div class="plan-cat-label">💻 Online Premium Private</div>
-                <div class="plan-name">12 Weeks Transformation <span class="plan-popular">Best Value</span></div>
-                <div class="plan-price-row">
-                  <span class="plan-currency">₹</span>
-                  <span class="plan-amount">1,250</span>
-                  <span class="plan-period">/ session</span>
-                  <span class="plan-usd">$13</span>
-                </div>
-              </div>
-              <div class="plan-meta">
-                <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>30 sessions over 12 weeks</div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">💻</span>Online • Live 1:1</div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹37,500</div>
-              </div>
-              <div class="plan-features">
-                <div class="plan-features-label">Focus Areas</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Strength & mobility</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Breathwork synchronisation</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Measurable visible results</div>
-              </div>
-              <div class="plan-cta"><button class="plan-btn gold" onclick="openBookModal()">Book Now</button></div>
-            </div>
-
-            <!-- 4. 24 Weeks Elite -->
-            <div class="plan-card fade-up delay-3">
-              <div class="plan-accent"></div>
-              <div class="plan-card-header">
-                <div class="plan-cat-label">💻 Online Premium Private</div>
-                <div class="plan-name">24 Weeks Elite Transformation</div>
-                <div class="plan-price-row">
-                  <span class="plan-currency">₹</span>
-                  <span class="plan-amount">1,000</span>
-                  <span class="plan-period">/ session</span>
-                  <span class="plan-usd">$12</span>
-                </div>
-              </div>
-              <div class="plan-meta">
-                <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>60 sessions over 24 weeks</div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">💻</span>Online • Live 1:1</div>
-                <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹60,000</div>
-              </div>
-              <div class="plan-features">
-                <div class="plan-features-label">Focus Areas</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Deep & lasting transformation</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Visible, measurable results</div>
-                <div class="pf-row"><span class="pf-check">✓</span>Long-term habit formation</div>
-              </div>
-              <div class="plan-cta"><button class="plan-btn" onclick="openBookModal()">Book Now</button></div>
-            </div>
-
-          </div><!-- end online-private -->
-
-
           <!-- ══ GROUP ONLINE ══ -->
           <div class="plan-group active" data-category="group-online">
 
@@ -954,6 +845,7 @@
                   <span class="plan-currency">₹</span>
                   <span class="plan-amount">499</span>
                   <span class="plan-period">/ session</span>
+                  <span class="plan-usd">$5</span>
                 </div>
               </div>
               <div class="plan-meta">
@@ -980,6 +872,7 @@
                   <span class="plan-currency">₹</span>
                   <span class="plan-amount">6,000</span>
                   <span class="plan-period">/ plan</span>
+                  <span class="plan-usd">$65</span>
                 </div>
               </div>
               <div class="plan-meta">
@@ -1006,6 +899,7 @@
                   <span class="plan-currency">₹</span>
                   <span class="plan-amount">10,000</span>
                   <span class="plan-period">/ plan</span>
+                  <span class="plan-usd">$108</span>
                 </div>
               </div>
               <div class="plan-meta">
@@ -1032,6 +926,7 @@
                   <span class="plan-currency">₹</span>
                   <span class="plan-amount">12,000</span>
                   <span class="plan-period">/ plan</span>
+                  <span class="plan-usd">$130</span>
                 </div>
               </div>
               <div class="plan-meta">
@@ -1094,7 +989,6 @@
           <ul>
             <li><a href="memberships.html?filter=online-private">Online Private</a></li>
             <li><a href="memberships.html?filter=premium-home">Private at Home</a></li>
-            <li><a href="memberships.html?filter=flexible-home">Flexible at Home</a></li>
             <li><a href="memberships.html?filter=group-online">Group Online</a></li>
           </ul>
         </div>
@@ -1137,17 +1031,28 @@
               placeholder="purelifestyleyogaofficial@gmail.com" required /></div>
         </div>
         <div class="form-group">
+          <label>Full Address</label>
+          <textarea name="address" placeholder="House/Flat No., Building Name, Street, Area, City..." rows="2" required></textarea>
+        </div>
+        <div class="form-group">
           <label>Interested In</label>
           <select required>
             <option value="">Select a programme</option>
             <option>Online Premium Private Sessions</option>
             <option>Premium Private Sessions at Home</option>
-            <option>Flexible Private Sessions at Home</option>
             <option>Group Online Sessions</option>
             <option>Not sure — help me choose</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary" style="width:100%">Book My Discovery Session 🌿</button>
+      <div class="form-group">
+        <label>Preferred Date & Time</label>
+        <input type="text" name="preferred_datetime" placeholder="e.g. Next Tuesday 5:00 PM or Weekends" required />
+      </div>
+      <div class="form-group">
+        <label>Your Wellness Goal (optional)</label>
+        <input type="text" name="goal" placeholder="e.g. Stress relief, weight loss, flexibility..." />
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%">Book My Discovery Session 🌿</button>
       </form>
     </div>
   </div>
@@ -1160,9 +1065,8 @@
     const countEl = document.getElementById('planCount');
 
     const meta = {
-      'all': { label: 'All Membership Plans', count: 16 },
+      'all': { label: 'All Membership Plans', count: 12 },
       'premium-home': { label: 'Premium Private Sessions at Home', count: 4 },
-      'flexible-home': { label: 'Flexible Private Sessions at Home', count: 4 },
       'online-private': { label: 'Online Premium Private Sessions', count: 4 },
       'group-online': { label: 'Group Online Sessions', count: 4 },
     };
@@ -1182,10 +1086,8 @@
     if (p && meta[p]) setFilter(p);
 
     // ── Auto-inject: GST label + Partner Sessions row ──
-    // Applies to all plans EXCEPT group-online
     const nonGroupCards = document.querySelectorAll(
       '.plan-group[data-category="premium-home"] .plan-card,' +
-      '.plan-group[data-category="flexible-home"] .plan-card,' +
       '.plan-group[data-category="online-private"] .plan-card'
     );
     nonGroupCards.forEach(card => {
@@ -1226,3 +1128,5 @@
 </body>
 
 </html>
+
+
