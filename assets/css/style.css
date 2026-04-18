@@ -349,7 +349,7 @@ p { font-size: 1rem; line-height: 1.8; color: var(--text-body); }
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background-image: url('../images/hero.png');
+  background-image: url('../images/hero-bg.png');
   background-size: cover; background-position: center;
 }
 .hero-bg::after {
