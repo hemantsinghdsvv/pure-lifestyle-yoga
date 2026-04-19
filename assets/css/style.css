@@ -1245,6 +1245,22 @@ p { font-size: 1rem; line-height: 1.8; color: var(--text-body); }
   .hero-content p { font-size: 1rem; }
   .hero-cta-group { gap: 0.75rem; }
   .hero-scroll { display: none; } /* cleaner on mobile */
+  /* Fix: image was hidden behind near-opaque gradient on mobile */
+  .hero-bg {
+    background-position: center top;
+  }
+  .hero-bg::after {
+    background: linear-gradient(to top,
+      rgba(22, 18, 14, 0.92) 0%,
+      rgba(22, 18, 14, 0.75) 40%,
+      rgba(22, 18, 14, 0.45) 70%,
+      rgba(22, 18, 14, 0.20) 100%
+    );
+  }
+  .hero-content {
+    max-width: 100%;
+    text-align: left;
+  }
 
   /* Stats strip */
   .stats-strip .container { gap: var(--spacing-md); flex-wrap: wrap; justify-content: center; }
