@@ -43,10 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Hero modal popup (homepage only) ──
   const modalOverlay = document.getElementById('bookingModal');
   if (modalOverlay) {
-    // Show after 2.5s if not dismissed
+    // Show after 10–15s (random) if not dismissed this session
     const dismissed = sessionStorage.getItem('modalDismissed');
     if (!dismissed) {
-      setTimeout(() => openModal(), 2500);
+      const delay = Math.floor(Math.random() * 5000) + 10000; // 10000–15000 ms
+      setTimeout(() => openModal(), delay);
     }
     // Close btn
     document.querySelectorAll('[data-close-modal]').forEach(btn => {
