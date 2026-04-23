@@ -207,12 +207,17 @@
     }
 
     .plan-cat-label {
-      font-size: 0.55rem;
+      display: inline-block;
+      font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.6rem;
+      color: var(--charcoal);
+      background: var(--gold-pale);
+      border: 1px solid var(--gold);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 0.8rem;
     }
 
     .plan-name {
@@ -719,16 +724,16 @@
           <div class="plan-group active" data-category="online-private">
 
             <!-- 1. Discovery -->
-            <div class="plan-card fade-up">
+            <div class="plan-card fade-up" data-no-partner="true">
               <div class="plan-accent"></div>
               <div class="plan-card-header">
                 <div class="plan-cat-label">💻 Online Premium Private</div>
                 <div class="plan-name">Discovery Session</div>
                 <div class="plan-price-row">
                   <span class="plan-currency">₹</span>
-                  <span class="plan-amount">500</span>
+                  <span class="plan-amount">1,000</span>
                   <span class="plan-period">/ session</span>
-                  <span class="plan-usd">$5</span>
+                  <span class="plan-usd">$10</span>
                 </div>
               </div>
               <div class="plan-meta">
@@ -746,7 +751,7 @@
             </div>
 
             <!-- 2. 4 Weeks Intensive -->
-            <div class="plan-card fade-up delay-1">
+            <div class="plan-card fade-up delay-1" data-partner-price="300">
               <div class="plan-accent"></div>
               <div class="plan-card-header">
                 <div class="plan-cat-label">💻 Online Premium Private</div>
@@ -1104,10 +1109,11 @@
       }
       // 2. Partner note before CTA
       const ctaEl = card.querySelector('.plan-cta');
-      if (ctaEl && !card.querySelector('.plan-partner-note')) {
+      if (ctaEl && !card.querySelector('.plan-partner-note') && !card.hasAttribute('data-no-partner')) {
         const note = document.createElement('div');
         note.className = 'plan-partner-note';
-        note.innerHTML = '* Partner Sessions Available: Additional <strong>₹500</strong> per person, per session.';
+        const partnerPrice = card.getAttribute('data-partner-price') || '500';
+        note.innerHTML = `* Partner Sessions Available: Additional <strong>₹${partnerPrice}</strong> per person, per session.`;
         ctaEl.before(note);
       }
     });
