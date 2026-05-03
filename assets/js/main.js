@@ -81,34 +81,164 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Booking form submit ──
   const bookingForm = document.getElementById('bookingForm');
   if (bookingForm) {
-    bookingForm.addEventListener('submit', (e) => {
+    bookingForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = bookingForm.querySelector('[type="submit"]');
-      btn.textContent = 'Sending...';
+      const originalText = btn.textContent;
+      btn.textContent = 'Submitting…';
       btn.disabled = true;
-      setTimeout(() => {
-        bookingForm.innerHTML = `
-          <div class="form-success" style="display:block">
-            <div class="success-icon">🌿</div>
-            <h4>You're Booked!</h4>
-            <p>Thank you! We'll reach out within 24 hours to confirm your discovery session.</p>
-          </div>`;
-      }, 1200);
+
+      const data = {
+        name: bookingForm.querySelector('[name="name"]')?.value || '',
+        phone: bookingForm.querySelector('[name="phone"]')?.value || '',
+        email: bookingForm.querySelector('[name="email"]')?.value || '',
+        address: bookingForm.querySelector('[name="address"]')?.value || '',
+        session: bookingForm.querySelector('[name="session"]')?.value || '',
+        preferred_datetime: bookingForm.querySelector('[name="preferred_datetime"]')?.value || '',
+        goal: bookingForm.querySelector('[name="goal"]')?.value || '',
+      };
+
+      try {
+        const res = await fetch('/api/inquiries', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (json.success) {
+          bookingForm.innerHTML = `
+            <div class="form-success" style="display:block;text-align:center;padding:1rem 0">
+              <div class="success-icon" style="font-size:2.5rem;margin-bottom:1rem">🌿</div>
+              <h4 style="margin-bottom:0.5rem">Request Received!</h4>
+              <p style="margin-bottom:1rem">We'll reach out within 24 hours to confirm your discovery session.</p>
+              <div style="background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.4);border-radius:10px;padding:12px 20px;display:inline-block">
+                <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold,#D4AF37);margin-bottom:4px">Your Reference</div>
+                <div style="font-size:20px;font-weight:700;font-family:monospace;color:var(--charcoal-deep,#1a1a1a)">#${json.ref}</div>
+              </div>
+              <p style="margin-top:1rem;font-size:0.85rem;color:#888">A confirmation has been sent to your email.</p>
+            </div>`;
+        } else {
+          btn.textContent = originalText;
+          btn.disabled = false;
+          alert(json.message || 'Something went wrong. Please try again.');
+        }
+      } catch (err) {
+        // Fallback if server is offline
+        btn.textContent = originalText;
+        btn.disabled = false;
+        alert('Unable to connect. Please WhatsApp us at +91 93103 79955.');
+      }
     });
   }
 
   // ── Contact form submit ──
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = contactForm.querySelector('[type="submit"]');
       const originalText = btn.textContent;
-      btn.textContent = 'Sending...'; btn.disabled = true;
-      setTimeout(() => {
-        contactForm.style.display = 'none';
-        document.getElementById('contactSuccess').style.display = 'block';
-      }, 1200);
+      btn.textContent = 'Sending Message...'; btn.disabled = true;
+
+      const formData = {
+        name: contactForm.name.value,
+        phone: contactForm.phone.value,
+        email: contactForm.email.value,
+        subject: contactForm.subject.value,
+        message: contactForm.message.value,
+        preferred_datetime: contactForm.preferred_datetime.value,
+        goal: contactForm.goal.value
+      };
+
+      try {
+        const response = await fetch('/api/contacts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        if (result.success) {
+          const successEl = document.getElementById('contactSuccess');
+          const wrapEl = document.getElementById('contactFormWrap');
+          
+          if (wrapEl) wrapEl.style.display = 'none';
+          if (successEl) {
+            successEl.style.display = 'block';
+            successEl.innerHTML = `
+              <div class="success-icon" style="font-size:3rem; margin-bottom:1rem; text-align:center;">🌿</div>
+              <h3 style="text-align:center; margin-bottom:1rem;">Message Sent!</h3>
+              <p style="text-align:center; color:var(--text-muted); margin-bottom:1.5rem;">
+                Thank you for reaching out, ${formData.name.split(' ')[0]}. We've received your enquiry and will respond within 24 hours.
+              </p>
+              <div style="background:var(--cream); border:1px solid var(--gold-pale); border-radius:var(--radius-md); padding:1rem; text-align:center; margin-bottom:1.5rem;">
+                <div style="font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--gold); margin-bottom:4px;">Reference Number</div>
+                <div style="font-size:1.2rem; font-weight:700; font-family:monospace;">#${result.ref}</div>
+              </div>
+              <a href="index.html" class="btn btn-primary" style="width:100%; justify-content:center;">Return Home</a>
+            `;
+          }
+        } else {
+          alert(result.message || 'Something went wrong. Please try again.');
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Unable to send message. Please WhatsApp us for immediate assistance.');
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    });
+  }
+
+  // ── Partnership form submit ──
+  const partnerForm = document.getElementById('partnerForm');
+  if (partnerForm) {
+    partnerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = partnerForm.querySelector('[type="submit"]');
+      const originalText = btn.textContent;
+      btn.textContent = 'Processing Request...'; btn.disabled = true;
+
+      const formData = {
+        name: partnerForm.name.value,
+        phone: 'N/A', 
+        email: partnerForm.email.value,
+        subject: `[Partnership] ${partnerForm.type.value} from ${partnerForm.org.value}`,
+        message: `Organisation: ${partnerForm.org.value}\nPartnership Type: ${partnerForm.type.value}`,
+        preferred_datetime: partnerForm.preferred_datetime.value,
+        goal: partnerForm.goal.value
+      };
+
+      try {
+        const response = await fetch('/api/contacts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        if (result.success) {
+          const successEl = document.getElementById('partnerSuccess');
+          const wrapEl = document.getElementById('partnerFormWrap');
+          if (wrapEl) wrapEl.style.display = 'none';
+          if (successEl) {
+            successEl.style.display = 'block';
+            const refEl = document.getElementById('partnerRef');
+            if (refEl) refEl.textContent = `#${result.ref}`;
+          }
+        } else {
+          alert(result.message || 'Something went wrong. Please try again.');
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Unable to send request. Please WhatsApp us at +91 93103 79955.');
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
     });
   }
 
@@ -223,6 +353,40 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, { threshold: 0.5 });
     countEls.forEach(el => countObserver.observe(el));
+  }
+
+  // ── Hero Slider Logic ──
+  const heroSlider = document.getElementById('heroSlider');
+  if (heroSlider) {
+    const slides = heroSlider.querySelectorAll('.hero-slide');
+    const dots = heroSlider.querySelectorAll('.hero-slider-dot');
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    let sliderTimer;
+
+    function goToSlide(index) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      
+      currentSlide = (index + totalSlides) % totalSlides;
+      
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        clearInterval(sliderTimer);
+        goToSlide(index);
+        sliderTimer = setInterval(nextSlide, 6000);
+      });
+    });
+
+    sliderTimer = setInterval(nextSlide, 6000);
   }
 
 });

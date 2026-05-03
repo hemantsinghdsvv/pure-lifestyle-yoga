@@ -3,7 +3,7 @@
  * Brand logo pulses with breathe in (blue) / breathe out (purple) animation.
  */
 (function () {
-  const MIN_DISPLAY = 2400;
+  const MIN_DISPLAY = 4500;
   const start = Date.now();
 
   const css = `

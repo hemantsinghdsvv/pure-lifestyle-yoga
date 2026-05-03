@@ -53,10 +53,18 @@
       grid-template-columns: 260px 1fr;
       gap: 2.5rem;
       max-width: 1360px;
-      /* Slightly scaled down from 1440px so cards aren't overly huge */
       margin: 0 auto;
       padding: 3rem 2rem 5rem;
       align-items: start;
+      transition: grid-template-columns 0.4s ease;
+    }
+
+    .mem-layout.sidebar-hidden {
+      grid-template-columns: 1fr;
+    }
+
+    .mem-layout.sidebar-hidden .mem-sidebar {
+      display: none;
     }
 
     /* Sidebar */
@@ -138,27 +146,59 @@
       color: var(--gold);
     }
 
-    /* Results header */
     .mem-results-header {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
       margin-bottom: 1.5rem;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 1rem;
+    }
+
+    .mem-results-title-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
 
     .mem-results-header h2 {
       font-family: var(--font-serif);
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-style: italic;
       font-weight: 400;
       color: var(--charcoal);
     }
 
     .mem-results-count {
-      font-size: 0.78rem;
-      color: var(--text-muted);
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .filter-toggle-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.4rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .mem-layout.sidebar-hidden .filter-toggle-btn {
+      display: inline-block;
+    }
+
+    .filter-toggle-btn:hover {
+      background: var(--gold-pale);
+      transform: translateY(-1px);
     }
 
     /* Cards grid */
@@ -171,33 +211,35 @@
     /* Card */
     .plan-card {
       background: var(--white);
-      border-radius: 14px;
-      border: 1px solid #E8E2D8;
-      box-shadow: 0 2px 14px rgba(42, 38, 34, 0.06);
+      border-radius: 16px;
+      border: 1px solid rgba(212, 175, 55, 0.15); /* Subtle gold border */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: box-shadow 0.25s ease, transform 0.25s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
     }
 
     @media (hover: hover) {
       .plan-card:hover {
-        box-shadow: 0 10px 40px rgba(42, 38, 34, 0.13);
-        transform: translateY(-4px);
+        box-shadow: 0 20px 50px rgba(212, 175, 55, 0.12); /* Gold-tinted shadow */
+        transform: translateY(-5px);
+        border-color: rgba(212, 175, 55, 0.4);
       }
     }
 
     .plan-accent {
-      height: 4px;
-      background: var(--charcoal);
+      height: 5px;
+      background: linear-gradient(90deg, var(--charcoal), var(--charcoal-mid));
     }
 
     .plan-accent.gold {
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      background: linear-gradient(90deg, #D4AF37, #F3E5AB, #D4AF37); /* Richer gold */
     }
 
     .plan-accent.sage {
-      background: var(--sage);
+      background: linear-gradient(90deg, var(--sage-dark), var(--sage));
     }
 
     /* Card header */
@@ -525,7 +567,7 @@
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="why-us.html">Why Us</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
         <li class="nav-dropdown">
           <a class="active">Memberships</a>
           <div class="dropdown-menu">
@@ -536,7 +578,6 @@
           </div>
         </li>
         <li><a href="events.html">Events</a></li>
-        <li><a href="partnerships.html">Partnerships</a></li>
         <li><a href="masters.html">Our Yoga Masters</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="#" data-open-modal class="nav-cta">Book Session</a></li>
@@ -546,14 +587,13 @@
     </div>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Home</a><a href="why-us.html">Why Choose Us</a>
+    <a href="index.html">Home</a><a href="our-story.html">Our Story</a>
     <div class="mobile-section-label">Memberships</div>
     <a href="memberships.html?filter=all" style="padding-left:1.5rem">All Plans</a>
     <a href="memberships.html?filter=premium-home" style="padding-left:1.5rem">Premium at Home</a>
     <a href="memberships.html?filter=online-private" style="padding-left:1.5rem">Online Private</a>
     <a href="memberships.html?filter=group-online" style="padding-left:1.5rem">Group Online</a>
-    <a href="events.html">Events</a><a href="partnerships.html">Partnerships</a>
-    <a href="masters.html">Our Yoga Masters</a><a href="contact.html">Contact</a>
+    <a href="events.html">Events</a>    <a href="masters.html">Our Yoga Masters</a><a href="contact.html">Contact</a>
     <a href="#" data-open-modal class="mobile-cta">Book Your Discovery Session</a>
   </div>
 
@@ -601,7 +641,10 @@
       <!-- CARDS -->
       <div>
         <div class="mem-results-header">
-          <h2 id="categoryTitle">All Membership Plans</h2>
+          <div class="mem-results-title-area">
+            <h2 id="categoryTitle">All Membership Plans</h2>
+            <button class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleSidebar()">✦ Filters</button>
+          </div>
           <span class="mem-results-count" id="planCount">12 plans available</span>
         </div>
 
@@ -623,6 +666,7 @@
                 </div>
               </div>
               <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">&#8987;</span>Duration: 45-60 Minutes</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>Single session</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">🏠</span>At your home</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">🎯</span>Comprehensive assessment</div>
@@ -649,6 +693,7 @@
                 </div>
               </div>
               <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">&#8987;</span>Duration: 45-60 Minutes</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>12 sessions (4 weeks)</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">🏠</span>At your home</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹24,000</div>
@@ -676,6 +721,7 @@
                 </div>
               </div>
               <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">&#8987;</span>Duration: 45-60 Minutes</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>36 sessions (12 weeks)</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">🏠</span>At your home</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹61,200</div>
@@ -703,6 +749,7 @@
                 </div>
               </div>
               <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">&#8987;</span>Duration: 45-60 Minutes</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>72 sessions (24 weeks)</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">⭐</span>Limited Access Available</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹108,000</div>
@@ -737,6 +784,7 @@
                 </div>
               </div>
               <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">&#8987;</span>Duration: 45-60 Minutes</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>Single session</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💻</span>Online • Live 1:1</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">🎯</span>Assessment & goal setting</div>
@@ -751,7 +799,7 @@
             </div>
 
             <!-- 2. 4 Weeks Intensive -->
-            <div class="plan-card fade-up delay-1" data-partner-price="300">
+            <div class="plan-card fade-up delay-1" data-partner-price="500">
               <div class="plan-accent"></div>
               <div class="plan-card-header">
                 <div class="plan-cat-label">💻 Online Premium Private</div>
@@ -764,6 +812,7 @@
                 </div>
               </div>
               <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">&#8987;</span>Duration: 45-60 Minutes</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>10 sessions </div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💻</span>Online • Live 1:1</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹15,000</div>
@@ -791,6 +840,7 @@
                 </div>
               </div>
               <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">&#8987;</span>Duration: 45-60 Minutes</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>30 sessions </div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💻</span>Online • Live 1:1</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹37,500</div>
@@ -818,6 +868,7 @@
                 </div>
               </div>
               <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">&#8987;</span>Duration: 45-60 Minutes</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>60 sessions </div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💻</span>Online • Live 1:1</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>Total: ₹60,000</div>
@@ -851,6 +902,7 @@
                 </div>
               </div>
               <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">&#8987;</span>Duration: 45-60 Minutes</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>Single trial session</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💻</span>Online group class</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">🎯</span>Try before you commit</div>
@@ -878,6 +930,7 @@
                 </div>
               </div>
               <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">&#8987;</span>Duration: 45-60 Minutes</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>12 sessions (3 per week)</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💻</span>Online group class</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>₹500 per session</div>
@@ -905,6 +958,7 @@
                 </div>
               </div>
               <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">&#8987;</span>Duration: 45-60 Minutes</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>24 sessions (3 per week)</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💻</span>Online group class</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>₹416 per session</div>
@@ -932,6 +986,7 @@
                 </div>
               </div>
               <div class="plan-meta">
+                <div class="plan-meta-row"><span class="plan-meta-icon">&#8987;</span>Duration: 45-60 Minutes</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">📅</span>36 sessions (3 per week)</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💻</span>Online group class</div>
                 <div class="plan-meta-row"><span class="plan-meta-icon">💰</span>₹333 per session</div>
@@ -981,10 +1036,11 @@
           <h5>Explore</h5>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="why-us.html">Why Choose Us</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
             <li><a href="masters.html">Our Yoga Masters</a></li>
             <li><a href="events.html">Events</a></li>
-          </ul>
+                    <li><a href="blog.html">Blogs</a></li>
+        </ul>
         </div>
         <div class="footer-col">
           <h5>Memberships</h5>
@@ -1031,10 +1087,10 @@
         <p>No commitment — just a conversation about your wellness goals.</p>
       </div>
       <form id="bookingForm">
-        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name" required /></div>
+        <div class="form-group"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required /></div>
         <div class="form-row">
-          <div class="form-group"><label>Phone</label><input type="tel" placeholder="+91 98XXX XXXXX" required /></div>
-          <div class="form-group"><label>Email</label><input type="email"
+          <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="+91 98XXX XXXXX" required /></div>
+          <div class="form-group"><label>Email</label><input type="email" name="email"
               placeholder="purelifestyleyogaofficial@gmail.com" required /></div>
         </div>
         <div class="form-group">
@@ -1043,13 +1099,13 @@
             required></textarea>
         </div>
         <div class="form-group">
-          <label>Interested In</label>
-          <select required>
-            <option value="">Select a programme</option>
-            <option>Online Premium Private Sessions</option>
-            <option>Premium Private Sessions at Home</option>
-            <option>Group Online Sessions</option>
-            <option>Not sure — help me choose</option>
+          <label>Session Type</label>
+          <select name="session" required>
+            <option value="">Select a session type</option>
+            <option>Premium Private Session at Home</option>
+            <option>Private Online Session</option>
+            <option>Group Online Session</option>
+            <option>Corporate Wellness Program</option>
           </select>
         </div>
         <div class="form-group">
@@ -1079,19 +1135,32 @@
       'group-online': { label: 'Group Online Sessions', count: 4 },
     };
 
-    function setFilter(f) {
+    function setFilter(f, fromUrl = false) {
       filterItems.forEach(i => i.classList.toggle('active', i.dataset.filter === f));
       planGroups.forEach(g => g.classList.toggle('active', f === 'all' || g.dataset.category === f));
       const m = meta[f] || meta['all'];
       titleEl.textContent = m.label;
-      countEl.textContent = m.count + (m.count > 1 ? ' plans available' : ' plan available');
+      countEl.textContent = m.count + (m.count > 1 ? ' plans' : ' plan');
+      
+      // Auto hide sidebar on selection (unless it's the initial load from URL without user interaction)
+      if (!fromUrl) {
+        document.querySelector('.mem-layout').classList.add('sidebar-hidden');
+      }
     }
 
-    filterItems.forEach(item => item.addEventListener('click', () => setFilter(item.dataset.filter)));
+    function toggleSidebar() {
+      document.querySelector('.mem-layout').classList.remove('sidebar-hidden');
+      // Scroll to sidebar on mobile
+      if (window.innerWidth <= 860) {
+         document.getElementById('memSidebar').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    filterItems.forEach(item => item.addEventListener('click', () => setFilter(item.dataset.filter, false)));
 
     // URL param support
     const p = new URLSearchParams(window.location.search).get('filter');
-    if (p && meta[p]) setFilter(p);
+    if (p && meta[p]) setFilter(p, true);
 
     // ── Auto-inject: GST label + Partner Sessions row ──
     const nonGroupCards = document.querySelectorAll(

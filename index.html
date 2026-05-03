@@ -38,7 +38,7 @@
       </a>
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="why-us.html">Why Us</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
         <li class="nav-dropdown">
           <a>Memberships</a>
           <div class="dropdown-menu">
@@ -49,7 +49,6 @@
           </div>
         </li>
         <li><a href="events.html">Events</a></li>
-        <li><a href="partnerships.html">Partnerships</a></li>
         <li><a href="masters.html">Our Yoga Masters</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="#" data-open-modal class="nav-cta">Book Session</a></li>
@@ -63,14 +62,13 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a>
-    <a href="why-us.html">Why Choose Us</a>
+    <a href="our-story.html">Our Story</a>
     <div class="mobile-section-label">Memberships</div>
     <a href="memberships.html?filter=all" style="padding-left:1.5rem">All Plans</a>
     <a href="memberships.html?filter=premium-home" style="padding-left:1.5rem">Premium at Home</a>
     <a href="memberships.html?filter=online-private" style="padding-left:1.5rem">Online Private</a>
     <a href="memberships.html?filter=group-online" style="padding-left:1.5rem">Group Online</a>
     <a href="events.html">Events</a>
-    <a href="partnerships.html">Partnerships</a>
     <a href="masters.html">Our Yoga Masters</a>
     <a href="contact.html">Contact</a>
     <a href="#" data-open-modal class="mobile-cta">Book Your Discovery Session</a>
@@ -79,55 +77,96 @@
   <!-- ══════════════════ MAIN CONTENT ══════════════════ -->
   <main class="page-content">
 
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="hero-bg"></div>
-      <div class="container">
-        <div class="hero-content">
-
-          <!-- Gold accent + eyebrow -->
-          <div class="hero-eyebrow-wrap fade-up">
-            <div class="hero-eyebrow-line"></div>
-            <!-- <p class="eyebrow">Gurugram & Delhi NCR's Premium Private Yoga</p> -->
+    <!-- HERO SLIDER -->
+    <section class="hero-slider" id="heroSlider">
+      
+      <!-- Slide 1 -->
+      <div class="hero-slide active">
+        <div class="hero-slide-bg" style="background-image: url('assets/images/hero-bg.png');"></div>
+        <div class="container" style="height: 100%; display: flex; align-items: center;">
+          <div class="hero-slide-content" style="max-width: 700px;">
+            <div class="hero-eyebrow-wrap fade-up" style="margin-bottom: 2rem;">
+              <span style="color:var(--gold-light); letter-spacing: 6px; text-transform: uppercase; font-size: 0.75rem; font-weight: 500; font-family: 'Inter', sans-serif;">The Sanctuary Within</span>
+            </div>
+            <h1 class="fade-up delay-1" style="font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 4.5rem); line-height: 1.1; margin: 0 0 1.5rem 0; font-weight: 400; color: #FDFCF0;">
+              Gurugram/Delhi NCR's <br>
+              Most <em style="font-style: italic; color: var(--gold-light); font-weight: 400; padding-right: 10px;">Exclusive</em> Practice.
+            </h1>
+            <p class="fade-up delay-2" style="font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 400; line-height: 1.7; max-width: 540px; color: rgba(253,252,240,0.8); margin-bottom: 3rem; font-family: 'Inter', sans-serif; letter-spacing: 0.2px;">
+              An invitation to unparalleled well-being. Experience highly personalized, luxury in-home wellness designed strictly for the discerning few.
+            </p>
+            <div class="hero-cta-group fade-up delay-3" style="display: flex; gap: 1.5rem;">
+              <a href="memberships.html?filter=premium-home" class="btn" style="background: rgba(253,252,240,1); color: #111; padding: 1.25rem 2.75rem; border-radius: 0; font-weight: 500; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: all 0.4s ease; border: 1px solid rgba(253,252,240,1);">Begin Your Journey</a>
+              <a href="our-story.html" class="btn" style="background: transparent; color: #FDFCF0; border: 1px solid rgba(253,252,240,0.4); padding: 1.25rem 2.75rem; border-radius: 0; font-weight: 500; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: all 0.4s ease;">The Philosophy</a>
+            </div>
           </div>
-
-          <!-- Headline -->
-          <h1 class="fade-up delay-1">Gurugram's Private Yoga Standard<br><em style="background-color: var(--gold); color: #111; padding: 2px 14px; border-radius: 8px; font-weight: 800; font-style: normal; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">for Luxury Homes.</em></h1>
-
-          <!-- Decorative gold divider -->
-          <div class="hero-divider fade-up delay-1">
-            <div class="hero-divider-dot"></div>
-            <div class="hero-divider-line"></div>
-          </div>
-
-          <!-- Body copy -->
-          <p class="fade-up delay-2">Personalized yoga at your home, guided by Master's degree-qualified instructors trained in biomechanics, alignment, breath intelligence, and therapeutic correction.</p>
-
-          <!-- CTAs -->
-          <div class="hero-cta-group fade-up delay-3">
-            <a href="#" data-open-modal class="btn btn-primary btn-lg">Request a Private Discovery Session</a>
-            <a href="https://wa.me/919310379955" class="btn btn-white btn-lg" target="_blank" rel="noopener">Speak on WhatsApp</a>
-          </div>
-
-          <!-- Trust strip -->
-          <div class="hero-trust fade-up delay-4">
-            <div class="hero-trust-item"><span>✦</span><span>By appointment only</span></div>
-            <div class="hero-trust-sep"></div>
-            <div class="hero-trust-item"><span>✦</span><span>Limited private clients</span></div>
-            <div class="hero-trust-sep"></div>
-            <div class="hero-trust-item"><span>✦</span><span>Gurugram &amp; Delhi NCR</span></div>
-          </div>
-
         </div>
       </div>
-      <div class="hero-scroll">
-        <div class="scroll-line"></div>
-        <span>Scroll</span>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg" style="background-image: url('assets/images/luxury-hero.jpg'); background-position: center 20%;"></div>
+        <div class="container" style="height: 100%; display: flex; align-items: center;">
+          <div class="hero-slide-content" style="max-width: 700px;">
+            <div class="hero-eyebrow-wrap fade-up" style="margin-bottom: 2rem;">
+              <span style="color:var(--gold-light); letter-spacing: 6px; text-transform: uppercase; font-size: 0.75rem; font-weight: 500; font-family: 'Inter', sans-serif;">Mastery in Motion</span>
+            </div>
+            <h1 class="fade-up delay-1" style="font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 7vw, 5.5rem); line-height: 1.05; margin: 0 0 1.5rem 0; font-weight: 400; color: #FDFCF0;">
+              Guided by <br>
+              <em style="font-style: italic; color: var(--gold-light); font-weight: 400; padding-right: 10px;">Elite</em> Instructors.
+            </h1>
+            <p class="fade-up delay-2" style="font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 400; line-height: 1.7; max-width: 540px; color: rgba(253,252,240,0.8); margin-bottom: 3rem; font-family: 'Inter', sans-serif; letter-spacing: 0.2px;">
+              Hand-selected from premier global institutions like SVYASA. Immerse yourself in authentic, science-backed therapies calibrated for the ultimate lifestyle.
+            </p>
+            <div class="hero-cta-group fade-up delay-3">
+              <a href="masters.html" class="btn" style="background: rgba(253,252,240,1); color: #111; padding: 1.25rem 2.75rem; border-radius: 0; font-weight: 500; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: all 0.4s ease; border: 1px solid rgba(253,252,240,1);">Meet The Masters</a>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg" style="background-image: url('assets/images/programs-luxury.jpg'); background-position: center 30%;"></div>
+        <div class="container" style="height: 100%; display: flex; align-items: center;">
+          <div class="hero-slide-content" style="max-width: 700px;">
+            <div class="hero-eyebrow-wrap fade-up" style="margin-bottom: 2rem;">
+              <span style="color:var(--gold-light); letter-spacing: 6px; text-transform: uppercase; font-size: 0.75rem; font-weight: 500; font-family: 'Inter', sans-serif;">Corporate Ascension</span>
+            </div>
+            <h1 class="fade-up delay-1" style="font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 7vw, 5.5rem); line-height: 1.05; margin: 0 0 1.5rem 0; font-weight: 400; color: #FDFCF0;">
+              Wellness for <br>
+              <em style="font-style: italic; color: var(--gold-light); font-weight: 400; padding-right: 10px;">High-Performing</em> Teams.
+            </h1>
+            <p class="fade-up delay-2" style="font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 400; line-height: 1.7; max-width: 540px; color: rgba(253,252,240,0.8); margin-bottom: 3rem; font-family: 'Inter', sans-serif; letter-spacing: 0.2px;">
+              Elevate your organizational culture. A discreet, structured approach to reduce executive stress and sharpen absolute focus.
+            </p>
+            <div class="hero-cta-group fade-up delay-3">
+              <a href="memberships.html?filter=corporate" class="btn" style="background: rgba(253,252,240,1); color: #111; padding: 1.25rem 2.75rem; border-radius: 0; font-weight: 500; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: all 0.4s ease; border: 1px solid rgba(253,252,240,1);">Corporate Inquiries</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Controls -->
+      <div class="hero-slider-nav">
+        <button class="hero-slider-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+        <button class="hero-slider-dot" data-slide="1" aria-label="Go to slide 2"></button>
+        <button class="hero-slider-dot" data-slide="2" aria-label="Go to slide 3"></button>
+      </div>
+      
+      <!-- Trust points (mobile hidden) -->
+      <div class="hero-trust fade-up delay-4" style="position:absolute; bottom:40px; left:5%; z-index:10; font-family: 'Inter', sans-serif;">
+        <div class="hero-trust-item"><span style="color: var(--gold-light);">✦</span><span style="letter-spacing: 1px; font-weight: 400;">By Appointment Only</span></div>
+        <div class="hero-trust-sep"></div>
+        <div class="hero-trust-item"><span style="color: var(--gold-light);">✦</span><span style="letter-spacing: 1px; font-weight: 400;">Strictly Confidential</span></div>
+        <div class="hero-trust-sep"></div>
+        <div class="hero-trust-item"><span style="color: var(--gold-light);">✦</span><span style="letter-spacing: 1px; font-weight: 400;">Gurugram/Delhi NCR</span></div>
+      </div>
+      
     </section>
 
     <!-- LUXURY POSITIONING STRIP -->
-    <section class="stats-strip" style="background:var(--charcoal-deep); border-top:1px solid rgba(212,175,55,0.3);">
+    <section class="stats-strip mobile-hide" style="background:var(--charcoal-deep); border-top:1px solid rgba(212,175,55,0.3);">
       <div class="container" style="flex-direction:column; text-align:center; padding:2.5rem 1rem; gap:0.75rem;">
         <p style="font-family:var(--font-serif); font-size:clamp(1.1rem,3vw,1.6rem); color:var(--gold); font-style:italic; margin:0;">Not a class. A private wellness system.</p>
         <p style="font-size:0.8rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin:0;">Precision &nbsp;&middot;&nbsp; Privacy &nbsp;&middot;&nbsp; Punctuality &nbsp;&middot;&nbsp; Personal Transformation</p>
@@ -186,19 +225,19 @@
         <div class="grid-2" style="margin-top:3.5rem; gap:1.5rem;">
           <div class="value-card fade-up delay-1" style="background:rgba(255,255,255,0.04); border:1px solid rgba(212,175,55,0.25); display:flex; gap:1.5rem; text-align:left;">
             <div style="color:var(--gold); font-size:1.8rem; font-family:var(--font-serif); min-width:2.5rem;">01</div>
-            <div><h4 style="color:white; margin-bottom:0.5rem; font-size:1rem; letter-spacing:0.08em;">BIOMECHANICS-BASED ALIGNMENT</h4><p style="color:rgba(255,255,255,0.55); font-size:0.88rem; margin:0;">Every posture corrected with anatomical precision — not just aesthetic adjustment.</p></div>
+            <div><h4 style="color:white; margin-bottom:0.5rem; font-size:1rem; letter-spacing:0.08em;">BIOMECHANICS-BASED ALIGNMENT</h4><p class="mobile-hide" style="color:rgba(255,255,255,0.55); font-size:0.88rem; margin:0;">Every posture corrected with anatomical precision — not just aesthetic adjustment.</p></div>
           </div>
           <div class="value-card fade-up delay-2" style="background:rgba(255,255,255,0.04); border:1px solid rgba(212,175,55,0.25); display:flex; gap:1.5rem; text-align:left;">
             <div style="color:var(--gold); font-size:1.8rem; font-family:var(--font-serif); min-width:2.5rem;">02</div>
-            <div><h4 style="color:white; margin-bottom:0.5rem; font-size:1rem; letter-spacing:0.08em;">BREATH-SYNCHRONIZED MOVEMENT</h4><p style="color:rgba(255,255,255,0.55); font-size:0.88rem; margin:0;">Pranayama integrated with asana — unlocking depth and nervous system balance.</p></div>
+            <div><h4 style="color:white; margin-bottom:0.5rem; font-size:1rem; letter-spacing:0.08em;">BREATH-SYNCHRONIZED MOVEMENT</h4><p class="mobile-hide" style="color:rgba(255,255,255,0.55); font-size:0.88rem; margin:0;">Pranayama integrated with asana — unlocking depth and nervous system balance.</p></div>
           </div>
           <div class="value-card fade-up delay-1" style="background:rgba(255,255,255,0.04); border:1px solid rgba(212,175,55,0.25); display:flex; gap:1.5rem; text-align:left;">
             <div style="color:var(--gold); font-size:1.8rem; font-family:var(--font-serif); min-width:2.5rem;">03</div>
-            <div><h4 style="color:white; margin-bottom:0.5rem; font-size:1rem; letter-spacing:0.08em;">THERAPEUTIC CORRECTION</h4><p style="color:rgba(255,255,255,0.55); font-size:0.88rem; margin:0;">Addressing back pain, stiffness, posture issues, and injury recovery with clinical care.</p></div>
+            <div><h4 style="color:white; margin-bottom:0.5rem; font-size:1rem; letter-spacing:0.08em;">THERAPEUTIC CORRECTION</h4><p class="mobile-hide" style="color:rgba(255,255,255,0.55); font-size:0.88rem; margin:0;">Addressing back pain, stiffness, posture issues, and injury recovery with clinical care.</p></div>
           </div>
           <div class="value-card fade-up delay-2" style="background:rgba(255,255,255,0.04); border:1px solid rgba(212,175,55,0.25); display:flex; gap:1.5rem; text-align:left;">
             <div style="color:var(--gold); font-size:1.8rem; font-family:var(--font-serif); min-width:2.5rem;">04</div>
-            <div><h4 style="color:white; margin-bottom:0.5rem; font-size:1rem; letter-spacing:0.08em;">LIFESTYLE-BASED PERSONALIZATION</h4><p style="color:rgba(255,255,255,0.55); font-size:0.88rem; margin:0;">Your schedule, goals, health history, and lifestyle shape your unique program.</p></div>
+            <div><h4 style="color:white; margin-bottom:0.5rem; font-size:1rem; letter-spacing:0.08em;">LIFESTYLE-BASED PERSONALIZATION</h4><p class="mobile-hide" style="color:rgba(255,255,255,0.55); font-size:0.88rem; margin:0;">Your schedule, goals, health history, and lifestyle shape your unique program.</p></div>
           </div>
         </div>
       </div>
@@ -212,7 +251,7 @@
             <p class="eyebrow">Private Clientele</p>
             <div class="gold-line"></div>
             <h2 style="margin-bottom:1.5rem;">Private sessions for those<br><em>who demand the best</em></h2>
-            <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:1rem;">
+            <ul class="mobile-hide" style="list-style:none; padding:0; display:flex; flex-direction:column; gap:1rem;">
               <li style="display:flex; align-items:center; gap:1rem; font-size:1.05rem; color:var(--charcoal-soft);"><span style="color:var(--gold);">✦</span> Business leaders &amp; senior executives</li>
               <li style="display:flex; align-items:center; gap:1rem; font-size:1.05rem; color:var(--charcoal-soft);"><span style="color:var(--gold);">✦</span> HNIs and luxury families in Gurugram &amp; Delhi NCR</li>
               <li style="display:flex; align-items:center; gap:1rem; font-size:1.05rem; color:var(--charcoal-soft);"><span style="color:var(--gold);">✦</span> Residents of premium gated communities</li>
@@ -232,7 +271,7 @@
     </section>
 
     <!-- SIGNATURE PROGRAMS -->
-    <section class="offerings-section section-pad" id="offerings">
+    <section class="offerings-section section-pad mobile-hide" id="offerings">
       <div class="container">
         <div class="section-header text-center fade-up">
           <p class="eyebrow">Signature Programs</p>
@@ -276,7 +315,12 @@
           <p style="color:var(--text-muted); max-width:460px; margin:0.75rem auto 0;">We let outcomes speak for themselves.</p>
         </div>
         <div class="grid-3" style="margin-top:3rem;">
-          <div class="testimonial-card fade-up delay-1" style="border:1px solid rgba(212,175,55,0.2); border-radius:var(--radius-lg);">
+          <!-- Review 1 -->
+          <div class="testimonial-card fade-up delay-1">
+            <div class="google-badge">
+              <svg class="google-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              <span class="google-text">Google Review</span>
+            </div>
             <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <div class="testimonial-text">&ldquo;Lower back stiffness improved within 6 weeks. The structured approach was unlike anything I had experienced before.&rdquo;</div>
             <div class="testimonial-author">
@@ -284,7 +328,12 @@
               <div><div class="author-name">Private Client</div><div class="author-meta">Golf Course Road, Gurugram</div></div>
             </div>
           </div>
-          <div class="testimonial-card fade-up delay-2" style="border:1px solid rgba(212,175,55,0.2); border-radius:var(--radius-lg);">
+          <!-- Review 2 -->
+          <div class="testimonial-card fade-up delay-2">
+            <div class="google-badge">
+              <svg class="google-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              <span class="google-text">Google Review</span>
+            </div>
             <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <div class="testimonial-text">&ldquo;Finally found a yoga practice that feels personal, structured, and premium. My instructor understands exactly what my body needs.&rdquo;</div>
             <div class="testimonial-author">
@@ -292,7 +341,12 @@
               <div><div class="author-name">Private Client</div><div class="author-meta">DLF Phase 5, Gurugram</div></div>
             </div>
           </div>
-          <div class="testimonial-card fade-up delay-3" style="border:1px solid rgba(212,175,55,0.2); border-radius:var(--radius-lg);">
+          <!-- Review 3 -->
+          <div class="testimonial-card fade-up delay-3">
+            <div class="google-badge">
+              <svg class="google-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              <span class="google-text">Google Review</span>
+            </div>
             <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <div class="testimonial-text">&ldquo;My corporate team&rsquo;s energy and focus improved noticeably. Truly world-class quality — discreet, punctual, and deeply professional.&rdquo;</div>
             <div class="testimonial-author">
@@ -301,12 +355,18 @@
             </div>
           </div>
         </div>
+        <div class="text-center fade-up delay-4" style="margin-top:4rem;">
+          <a href="https://www.google.com/search?q=Pure+Lifestyle+Yoga+Reviews" target="_blank" class="btn btn-outline" style="border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.8);">
+            <svg class="google-icon" style="margin-right:8px; vertical-align:middle;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            See all 4.9/5 stars reviews on Google
+          </a>
+        </div>
       </div>
     </section>
 
 
     <!-- MASTERS PREVIEW -->
-    <section class="masters-section section-pad" id="masters-preview" style="background:var(--cream);">
+    <section class="masters-section section-pad mobile-hide" id="masters-preview" style="background:var(--cream);">
       <div class="container">
         <div class="section-header fade-up">
           <p class="eyebrow">The Teaching Team</p>
@@ -315,50 +375,83 @@
           <p>Master&rsquo;s degree-qualified instructors with international training, personally chosen and trained by Master Samresh Keshyap.</p>
         </div>
         <div class="grid-3" style="margin-top: 3rem;">
-          <!-- Master 1: Samresh -->
-          <div class="master-card fade-up delay-1">
-            <img src="assets/images/master-samresh-new.jpg" alt="Master Samresh Keshyap" class="master-img"
-              loading="lazy" />
-            <div class="master-overlay">
-              <span class="master-tag">CEO and Founder</span>
-              <div class="master-name">Master Samresh Keshyap</div>
-              <div class="master-spec">20+ Years • Yoga Therapist &amp; Mentor</div>
+          <!-- Master 1: Samresh Keshyap – CEO and Founder -->
+          <div class="master-profile fade-up delay-1">
+            <div class="master-img-wrapper">
+              <img src="assets/images/master-samresh-new.jpg" alt="Master Samresh Keshyap – CEO and Founder, Pure Lifestyle Yoga" class="master-profile-img" loading="lazy" />
+              <div class="master-tag-overlay">✦ CEO and Founder</div>
+            </div>
+            <div class="master-profile-body">
+              <h3>Master Samresh Keshyap</h3>
+              <p class="master-desc">HNI Yoga Specialist with over 20 years of experience across 17+ countries. An expert in Biomechanics &amp; Therapy, Master Samresh has transformed 1000s of clients with precision, blending ancient wisdom with modern science to deliver a global yoga experience at your home.</p>
+            </div>
+            <div class="master-specialization-footer">
+              <span class="spec-label">Specialization</span>
+              <span class="spec-text">Highly Experienced Yoga Therapist &amp; Mentor</span>
             </div>
           </div>
-          <!-- Master 2: Ekta -->
-          <div class="master-card fade-up delay-2">
-            <img src="assets/images/master-ekta-new.jpg" alt="Ekta Shukla" class="master-img" loading="lazy" />
-            <div class="master-overlay">
-              <span class="master-tag">Director and counsellor</span>
-              <div class="master-name">Ekta Shukla</div>
-              <div class="master-spec">10+ Years • Psychologist, Hypnotherapist, Mindfulness</div>
+
+          <!-- Master 2: Ekta Shukla -->
+          <div class="master-profile fade-up delay-2">
+            <div class="master-img-wrapper">
+              <img src="assets/images/master-ekta-new.jpg" alt="Ekta Shukla – Director and counsellor, Pure Lifestyle Yoga" class="master-profile-img" loading="lazy" />
+              <div class="master-tag-overlay">✦ Director and counsellor</div>
+            </div>
+            <div class="master-profile-body">
+              <h3>Ekta Shukla</h3>
+              <p class="master-desc">Visionary leader integrating Clinical Psychology, Hypnotherapy, and Yoga Therapy. With an M.A. from D.S.V.V Haridwar and certification from S-VYASA Bengaluru, Ekta brings 10+ years of experience in holistic healing, specializing in stress management, emotional resilience, and personality development.</p>
+            </div>
+            <div class="master-specialization-footer">
+              <span class="spec-label">Specialization</span>
+              <span class="spec-text">Psychologist, Hypnotherapist, Mindfulness</span>
             </div>
           </div>
-          <!-- Master 3: Divyansh -->
-          <div class="master-card fade-up delay-3">
-            <img src="assets/images/master-divyansh-new.jpg" alt="Master Divyansh Singh" class="master-img" loading="lazy" />
-            <div class="master-overlay">
-              <span class="master-tag">Premium Instructor</span>
-              <div class="master-name">Master Divyansh Singh</div>
-              <div class="master-spec">Master's in Yogic Sciences</div>
+
+          <!-- Master 3: Divyansh Singh -->
+          <div class="master-profile fade-up delay-3">
+            <div class="master-img-wrapper">
+              <img src="assets/images/master-divyansh-new.jpg" alt="Master Divyansh Singh – Premium Yoga Instructor, Pure Lifestyle Yoga" class="master-profile-img" loading="lazy" />
+              <div class="master-tag-overlay">✦ Premium Yoga Instructor</div>
+            </div>
+            <div class="master-profile-body">
+              <h3>Master Divyansh Singh</h3>
+              <p class="master-desc">Specializing in Alignment-Based Yoga, Ashtanga, and Hatha Practice from D.S.V.V Haridwar, he learned Ashtanga from authorised teachers by Late. Sharath Jois (Sat Inder Khalsa, Digna Popat, Sachin Badoni). Divyansh combines traditional yogic sciences with modern biomechanics and therapeutic precision. He has treated more than 300+ individuals till date through both online and offline group and private classes, offering science-based methods for real, lasting transformation through luxury home sessions.</p>
+            </div>
+            <div class="master-specialization-footer">
+              <span class="spec-label">Specialization</span>
+              <span class="spec-text">Alignment-Based Yoga, Ashtanga, and Hatha</span>
             </div>
           </div>
-          <!-- Master 4: Parthiv -->
-          <div class="master-card fade-up delay-1">
-            <img src="assets/images/master-parthiv-new.jpg" alt="Parthiv Sharma" class="master-img" loading="lazy" />
-            <div class="master-overlay">
-              <span class="master-tag">Premium Yoga Therapist</span>
-              <div class="master-name">Parthiv Sharma</div>
-              <div class="master-spec">Alignment, Ashtanga &amp; Yoga Therapy</div>
+
+          <!-- Master 4: Parthiv Sharma -->
+          <div class="master-profile fade-up delay-1">
+            <div class="master-img-wrapper">
+              <img src="assets/images/master-parthiv-new.jpg" alt="Parthiv Sharma – Premium Yoga Therapist, Pure Lifestyle Yoga" class="master-profile-img" loading="lazy" />
+              <div class="master-tag-overlay">✦ Premium Yoga Therapist</div>
+            </div>
+            <div class="master-profile-body">
+              <h3>Parthiv Sharma</h3>
+              <p class="master-desc">A science-based practitioner from Dev Sanskriti Vishwavidyalaya, Haridwar, Parthiv specialises in Alignment-Based Yoga, Ashtanga &amp; Hatha Practice, Breathwork &amp; Pranayama, and Yoga Therapy &amp; Posture Correction. His approach combines traditional yoga with modern biomechanics, breath intelligence and therapeutic precision — designed for real, lasting transformation through luxury private &amp; home sessions.</p>
+            </div>
+            <div class="master-specialization-footer">
+              <span class="spec-label">Specialization</span>
+              <span class="spec-text">Alignment-Based Yoga, Therapy & Posture Correction.</span>
             </div>
           </div>
-          <!-- Master 5: Shailza -->
-          <div class="master-card fade-up delay-2">
-            <img src="assets/images/master-shailza-new.jpg" alt="Shailza Sharma" class="master-img" loading="lazy" />
-            <div class="master-overlay">
-              <span class="master-tag">Yoga Instructor</span>
-              <div class="master-name">Shailza Sharma</div>
-              <div class="master-spec">Holistic Well-Being &amp; Women's Health</div>
+
+          <!-- Master 5: Shailza Sharma -->
+          <div class="master-profile fade-up delay-2">
+            <div class="master-img-wrapper">
+              <img src="assets/images/master-shailza-new.jpg" alt="Shailza Sharma – Yoga Instructor, Pure Lifestyle Yoga" class="master-profile-img" loading="lazy" />
+              <div class="master-tag-overlay">✦ Yoga Instructor</div>
+            </div>
+            <div class="master-profile-body">
+              <h3>Shailza Sharma</h3>
+              <p class="master-desc">Shailza brings the philosophy of Expertise, Empathy, and Excellence to every session. Specialising in all levels from gentle to advanced, she offers refined guidance with a holistic approach to Mind, Body, and Soul. Her dedicated focus on women's health and specialised care makes her the ideal partner for your wellness journey — beautifully, precisely, consistently.</p>
+            </div>
+            <div class="master-specialization-footer">
+              <span class="spec-label">Specialization</span>
+              <span class="spec-text">Holistic Well-Being &amp; Women's Health Specialist</span>
             </div>
           </div>
         </div>
@@ -379,12 +472,12 @@
             <p style="color:rgba(255,255,255,0.75); font-size:1.05rem; line-height:1.8; margin-bottom:2rem;">We understand your body, lifestyle, goals, injuries, schedule, and preferred instructor before recommending any program. No guesswork. No generic plans.</p>
             <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(212,175,55,0.3); border-radius:var(--radius-lg); padding:1.75rem 2rem; margin-bottom:2rem;">
               <p style="color:var(--gold); font-family:var(--font-serif); font-size:1.1rem; font-style:italic; margin:0 0 0.5rem;">Discovery Session</p>
-              <p style="color:white; font-size:2rem; font-weight:700; margin:0 0 0.5rem; letter-spacing:-0.02em;">&#8377;1,500</p>
-              <p style="color:rgba(255,255,255,0.5); font-size:0.85rem; margin:0;">Private wellness assessment &middot; 30 minutes &middot; By appointment</p>
+              <p style="color:white; font-size:2rem; font-weight:700; margin:0 0 0.5rem; letter-spacing:-0.02em;">&#8377;1,000</p>
+              <p style="color:rgba(255,255,255,0.5); font-size:0.85rem; margin:0;">Private wellness assessment &middot; 45 minutes &middot; By appointment</p>
             </div>
             <a href="#" data-open-modal class="btn btn-primary btn-lg">Book Discovery Session</a>
           </div>
-          <div class="fade-up delay-2">
+          <div class="fade-up delay-2 mobile-hide">
             <div style="display:flex; flex-direction:column; gap:1rem;">
               <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(212,175,55,0.2); border-radius:var(--radius-md); padding:1.25rem 1.5rem; display:flex; gap:1rem; align-items:flex-start;"><span style="color:var(--gold); font-size:1.2rem;">&#10003;</span><p style="color:rgba(255,255,255,0.8); margin:0; font-size:0.95rem;">Body &amp; health history understanding</p></div>
               <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(212,175,55,0.2); border-radius:var(--radius-md); padding:1.25rem 1.5rem; display:flex; gap:1rem; align-items:flex-start;"><span style="color:var(--gold); font-size:1.2rem;">&#10003;</span><p style="color:rgba(255,255,255,0.8); margin:0; font-size:0.95rem;">Lifestyle, schedule &amp; goal mapping</p></div>
@@ -439,11 +532,11 @@
           <h5>Explore</h5>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="why-us.html">Why Choose Us</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
             <li><a href="masters.html">Our Yoga Masters</a></li>
             <li><a href="events.html">Events & Retreats</a></li>
-            <li><a href="partnerships.html">Partnerships</a></li>
-          </ul>
+            <li><a href="blog.html">Blogs</a></li>
+        </ul>
         </div>
         <div class="footer-col">
           <h5>Memberships</h5>
