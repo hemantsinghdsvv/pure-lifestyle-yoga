@@ -86,7 +86,8 @@ apiKey.apiKey = process.env.BREVO_API_KEY;
 
 const apiInstance = new brevo.TransactionalEmailsApi();
 
-function generateInquiryEmail(data, id) {
+function generateInquiryEmail(data, id, host) {
+  const baseUrl = host ? `https://${host}` : `http://localhost:${process.env.PORT || 3000}`;
   return `
 <!DOCTYPE html>
 <html>
@@ -157,7 +158,7 @@ function generateInquiryEmail(data, id) {
     </table>
 
     <div style="text-align:center;">
-      <a href="http://localhost:${PORT}/admin" class="action-btn">View in Admin Dashboard →</a>
+      <a href="${baseUrl}/admin" class="action-btn">View in Admin Dashboard →</a>
     </div>
   </div>
   <div class="footer">
@@ -527,7 +528,7 @@ app.post('/api/inquiries', async (req, res) => {
 
     const sendAdminEmail = new brevo.SendSmtpEmail();
     sendAdminEmail.subject = `🌿 New Discovery Session Inquiry #PLY-${String(id).padStart(4, '0')} — ${name}`;
-    sendAdminEmail.htmlContent = generateInquiryEmail(mailData, id);
+    sendAdminEmail.htmlContent = generateInquiryEmail(mailData, id, req.get('host'));
     sendAdminEmail.sender = sender;
     sendAdminEmail.to = [{ email: process.env.ADMIN_EMAIL }];
 
@@ -807,19 +808,26 @@ app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'admin', 'index.html'));
 });
 
-// Start server
-async function start() {
-  try {
-    await initDB();
-    app.listen(PORT, () => {
-      console.log(`\n🌿 Pure Lifestyle Yoga Server running at http://localhost:${PORT}`);
-      console.log(`📊 Admin Dashboard: http://localhost:${PORT}/admin`);
-      console.log(`📋 API: http://localhost:${PORT}/api/inquiries\n`);
-    });
-  } catch (err) {
-    console.error('❌ Failed to connect to database:', err.message);
-    process.exit(1);
-  }
-}
+// Export the app for Vercel Serverless Functions
+module.exports = app;
 
-start();
+// Start server (only if running locally)
+if (require.main === module) {
+  async function start() {
+    try {
+      await initDB();
+      app.listen(PORT, () => {
+        console.log(`\n🌿 Pure Lifestyle Yoga Server running at http://localhost:${PORT}`);
+        console.log(`📊 Admin Dashboard: http://localhost:${PORT}/admin`);
+        console.log(`📋 API: http://localhost:${PORT}/api/inquiries\n`);
+      });
+    } catch (err) {
+      console.error('❌ Failed to connect to database:', err.message);
+      process.exit(1);
+    }
+  }
+  start();
+} else {
+  // If imported by Vercel, run initDB asynchronously
+  initDB().catch(console.error);
+}
